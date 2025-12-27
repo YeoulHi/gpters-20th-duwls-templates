@@ -1,203 +1,377 @@
 # Setup Workspace - 초기 설정 마법사
 
-> **gpters 20기 프리랜서를 위한 Claude Code 워크스페이스 초기 설정**       
+> **gpters 20기 프리랜서를 위한 Claude Code 워크스페이스 초기 설정**
 
 4주 동안 나만의 자동화 Skill을 만들기 위한 첫 단계입니다.
 
-## 🎯 이 명령어가 하는 일
+## 🎯 목표
 
-### 1. 환영 메시지
-- gpters 20기 스터디 소개
-- Claude Code와 Agent Skills 간단 설명
-- 4주 목표: **커스텀 Skill 3개 이상 완성**
-
-### 2. 환경 검증 (자동)
-다음 도구가 설치되어 있는지 확인합니다:
-- ✅ **Claude Code** (v1.0 이상)
-- ✅ **VSCode** (또는 다른 코드 에디터)
-- ⏳ **Python 3.x** (Week 3에 설치 예정)
-- ✅ **Git Bash** (Windows) / Terminal (Mac)
-
-**Python 설치는 Week 3 전에 하면 됩니다!**
-→ 설치 가이드: `docs/python-setup-guide.md` 참고
-
-### 3. 필수 폴더 구조 생성
-
-gpters-20th-templates 프로젝트에 필요한 기본 구조를 자동 생성합니다:       
-
-gpters-20th-templates/
-├── .claude/
-│   ├── skills/              # Project Skills (팀 공유)
-│   └── commands/            # Slash Commands
-├── docs/
-│   ├── python-setup-guide.md   # Python 설치 가이드
-│   └── weekly-guides/          # 주차별 가이드
-├── skills/                  # Skill 예제 모음
-├── templates/               # 재사용 템플릿
-├── examples/                # 실제 사용 예시
-└── scripts/                 # 자동화 스크립트
-
-### 4. Week 1 준비물 생성
-첫 주차 학습에 필요한 파일들을 자동으로 만듭니다:
-- `docs/weekly-guides/week1-guide.md` - 1주차 학습 가이드
-- `templates/automation-design.md` - 자동화 설계서 템플릿
-- `examples/my-first-idea.md` - 아이디어 작성 예시
-
-### 5. Skills vs Commands 개념 설명
-**중요한 차이점을 설명합니다:**
-
-| | **Agent Skills** | **Slash Commands** |
-|---|---|---|
-| **실행 방식** | 🤖 모델이 자동 판단 | 👤 사용자가 직접 `/명령어` 입력 |  
-| **위치** | `.claude/skills/` | `.claude/commands/` |
-| **주요 파일** | `SKILL.md` | `명령어.md` |
-| **사용 예** | 음성 전사, API 연동 | 워크스페이스 설정, 일일 노트 |       
-
-**Week 2부터는 Skills를 주로 만들게 됩니다!**
-
-### 6. 다음 단계 안내
-설정 완료 후 할 일을 안내합니다.
+이 명령어는 다음을 진행합니다:
+1. **참여자 정보 수집** (이름, 목표, 숙련도)
+2. **시스템 환경 파악** (OS, Python, GPU)
+3. **claude.md에 자동 저장** (메모리 문서화)
 
 ---
 
-## 📝 실행 방법
+## 📋 Part 1: 참여자 정보 수집
+
+### Step 1: 환영 메시지
+
+안녕하세요! 👋
+
+**gpters 20기 Claude Code 워크스페이스 초기 설정**을 시작하겠습니다.
+
+이 설정에서는 다음을 진행합니다:
+- ✅ 당신에 대한 정보 수집 (이름, 목표, 숙련도)
+- ✅ 시스템 환경 정보 확인
+- ✅ 수집된 정보를 `claude.md`에 자동 저장
+
+**예상 소요 시간:** 10-15분
+
+계속하시겠습니까?
+
+---
+
+### Step 2: 이름/닉네임 입력
+
+**자신을 소개해주세요!**
+
+다음 중 하나를 선택하세요:
+- 실명 사용
+- 닉네임 사용
+- 기타 (입력)
+
+**입력 예시:**
+- "김철수"
+- "CodingKing"
+- "freelancer_2025"
+
+---
+
+### Step 3: 원하는 목표 & 기대하는 성과
+
+**4주 후 어떤 결과물을 기대하나요?**
+
+자유롭게 작성해주세요:
+
+**예시:**
+- "음성 파일을 텍스트로 자동 변환하는 스크립트 만들기"
+- "일일 업무 자동 정리 시스템 구축"
+- "데이터 수집 및 분석 자동화 도구 개발"
+- "API 연동 자동화 Skill 3개 만들기"
+
+---
+
+### Step 4: AI 숙련도 선택
+
+**현재 Claude Code와 자동화에 대한 숙련도는 어느 정도인가요?**
+
+다음 중 하나를 선택하세요:
+
+1. **클로드 코드 및 자동화 입문자**
+   - Claude Code를 처음 사용합니다
+   - 자동화/Skill이 무엇인지 모릅니다
+   - Python도 처음 배우는 중입니다
+
+2. **클로드 코드 사용만 할 수 있고 나머지는 모름**
+   - Claude Code의 기본 사용법은 알고 있습니다
+   - 하지만 Skill, 자동화 등은 처음입니다
+   - Python 경험이 거의 없습니다
+
+3. **클로드 코드 숙련자**
+   - Claude Code를 잘 사용하고 있습니다
+   - Skill 개발 경험이 있습니다
+   - Python을 어느 정도 할 수 있습니다
+
+---
+
+## 📋 Part 2: 시스템 환경 정보 수집
+
+### Step 5: 운영체제 선택
+
+사용 중인 운영체제를 선택해주세요:
+
+**다음 중 하나를 선택하세요:**
+
+- Windows (Windows 10/11)
+- Mac (Intel 또는 Apple Silicon M1/M2/M3)
+- Linux (Ubuntu, Fedora 등)
+
+---
+
+### Step 6: 시스템 정보 스크린샷 수집
+
+### Windows 사용자
+
+**다음 중 하나의 방법을 선택하세요:**
+
+#### 방법 1: Settings 앱 (권장)
+1. Windows 키 + I 누르기 (Settings 열기)
+2. "System" 선택
+3. 스크롤해서 "About" 클릭
+4. 다음 정보가 보이는 스크린샷 촬영:
+   - Edition (예: Windows 11 Pro)
+   - Version
+   - OS Build
+   - Processor (CPU)
+   - Installed RAM
+
+**스크린샷을 업로드해주세요.**
+
+#### 방법 2: 명령어 방식
+터미널을 열고 다음 명령어 실행:
+```bash
+systeminfo
+```
+결과 스크린샷 촬영 후 업로드
+
+---
+
+### Mac 사용자
+
+**다음을 진행하세요:**
+
+1. Apple 메뉴 클릭 (좌측 상단)
+2. "About This Mac" 선택
+3. 다음이 보이는 스크린샷 촬영:
+   - macOS 버전 (예: macOS Sonoma 14.6)
+   - Chip (Intel 또는 Apple Silicon M1/M2/M3)
+   - Memory (RAM 크기)
+   - Processor (CPU 정보)
+
+**스크린샷을 업로드해주세요.**
+
+---
+
+### Linux 사용자
+
+터미널에서 다음 명령어 실행:
+```bash
+uname -a
+lsb_release -a
+free -h
+lscpu
+```
+결과 스크린샷 또는 텍스트 업로드
+
+---
+
+### Step 7: 정보 검증
+
+스크린샷을 확인하여 다음 정보를 추출하겠습니다:
+
+**확인할 정보:**
+
+- 운영체제 및 버전
+- 프로세서 (CPU)
+- 메모리 (RAM)
+- 아키텍처 (x64, ARM64, M1/M2 등)
+
+---
+
+### Step 8: Python 설치 여부 확인
+
+**Python이 설치되어 있나요?**
+
+### Python 확인 방법
+
+**Windows 또는 Mac/Linux 모두:**
+
+터미널/커맨드 프롬프트 열고 다음 입력:
 
 ```bash
-/setup-workspace
+python --version
+```
 
----
-🚀 설정 완료 후 할 일
+또는
 
-📅 Week 1: 나만의 데이터 만들고 문제 발견하기
+```bash
+python3 --version
+```
 
-1단계: README.md 읽기 (5분)
-# 프로젝트 개요 확인
-cat README.md
-
-2단계: Week 1 가이드 확인 (10분)
-# 1주차 학습 내용 확인
-cat docs/weekly-guides/week1-guide.md
-
-3단계: 자동화 아이디어 발견 (30분)
-- templates/automation-design.md 템플릿 사용
-- 나의 반복 업무 3가지 적기
-- 자동화하고 싶은 것 1개 선정
-
-4단계: 예제 Skill 살펴보기 (15분)
-# 음성 전사 예제 확인
-cat skills/voice-transcription/SKILL.md
-
-# Google Calendar 예제 확인
-cat skills/google-calendar/SKILL.md
-
----
-📚 주요 커맨드 (Slash Commands)
-
-스터디 기간 동안 사용할 유용한 명령어들:
-
-Week 1-2: 기본 학습
-
-- 이 명령어: /setup-workspace - 초기 설정 (지금 실행 중!)
-- /todo - 할 일 추가
-- /todos - 할 일 목록 확인
-
-Week 3-4: Skill 개발
-
-- (추후 추가될 명령어들)
-
----
-❓ Skills vs Commands 더 자세히
-
-🤖 Agent Skills (Week 2부터 만들 것)
-
-언제 사용되나요?
-- Claude가 자동으로 판단해서 사용
-- 예: "이 녹음 파일 정리해줘" → 음성 전사 Skill 자동 실행
-
-어디에 저장하나요?
-- Personal Skills: ~/.claude/skills/ (모든 프로젝트에서 사용)
-- Project Skills: .claude/skills/ (이 프로젝트에서만)
-
-이번 스터디에서는?
-→ Project Skills를 만들어서 팀과 공유합니다!
-
-👤 Slash Commands (지금 사용 중)
-
-언제 사용되나요?
-- 사용자가 직접 /명령어 입력
-
-어디에 저장하나요?
-- .claude/commands/
-
-예시:
-- /setup-workspace ← 지금 이 명령어!
-- /todo ← 할 일 추가
-
----
-⚠️ 이 명령어는 하지 않습니다
-
-❌ API 키 설정하지 않음
-- API 키는 .env.local 파일에 작성해야 합니다
-- Week 3 스터디에서 스터디장이 자세히 설명합니다
-- .gitignore로 외부 유출 방지됨
-
-❌ Python 패키지 자동 설치 안 함 (필요시 수동 설치 안내)
-❌ Git 저장소 초기화 안 함 (이미 클론한 프로젝트 가정)
-❌ 복잡한 질문하지 않음 (간단한 환영 메시지만)
-
-→ 이유: 비개발자도 쉽게 시작할 수 있도록 최소한만 설정합니다.
-
----
-🔄 재실행 가능
-
-언제든 다시 실행 가능합니다.
-- 기존 파일이 있으면 덮어쓰지 않습니다
-- 누락된 파일만 새로 생성합니다
-
----
-💡 자주 묻는 질문 (FAQ)
-
-Q1. Personal Skills vs Project Skills 차이가 뭔가요?
-- Personal Skills: 내 컴퓨터의 모든 프로젝트에서 사용 (~/.claude/skills/)  
-- Project Skills: 이 프로젝트(gpters-20th-templates)에서만 사용 (.claude/skills/)
-
-이번 스터디에서는?
-→ Project Skills를 중심으로 팀과 공유합니다!
-→ 원하면 나중에 Personal Skills로도 등록 가능합니다 (복사만 하면 됨)       
-
-Q2. Windows에서 ~/.claude/skills/ 경로가 어딘가요?
-- C:\Users\[사용자명]\.claude\skills\
-- Mac/Linux: /Users/[사용자명]/.claude/skills/
-
-Q3. Python이 없으면 어떻게 하나요?
-- Week 2 전까지 설치하면 됩니다
-- 설치 가이드: docs/python-setup-guide.md 참고
-
-Q4. Skills를 만들려면 코딩을 할 줄 알아야 하나요?
-- 아니요! Python 가이드를 보고 설치 + Claude에게 잘 물어보면 됩니다!       
-- Week 1-2에서 차근차근 배웁니다
-
----
-🎯 4주 후 달성 목표
-
-✅ 핵심 결과물: 나만의 커스텀 Skill 3개 이상
-✅ 서브 결과물: 업무 자동화 설계서
-✅ 기대 효과: 주 5시간 이상 시간 절약
-
----
-📖 더 알아보기
-
-- Python 설치 가이드: docs/python-setup-guide.md
-- Skills 공식 문서: docs/skills.md
-- 스터디 상세 페이지: docs/gpters20.md
-- 주차별 가이드: docs/weekly-guides/
-- 프로젝트 README: README.md
+**결과 예시:**
+```
+Python 3.11.5
+```
 
 ---
 
-환영합니다! 🎉
-4주 후, 여러분만의 자동화 도구를 갖게 될 것입니다.
-궁금한 점이 있으면 언제든 Claude에게 물어보세요!
+### 선택지:
 
---- 
+1. **Python이 설치되어 있음** → Python 버전 입력 (예: 3.11.5)
+2. **Python이 설치되어 있지 않음** → 설치 가이드 제공
+3. **확실하지 않음** → 명령어 실행 후 스크린샷 업로드
 
+---
+
+### Step 9: GPU 정보 (선택사항)
+
+프로젝트에서 음성 전사(Whisper), 이미지 처리 등 **GPU가 필요한 작업**을 계획 중이라면 GPU 정보를 수집합니다.
+
+### NVIDIA GPU 확인 (Windows/Linux)
+
+터미널에서 다음 명령어 실행:
+```bash
+nvidia-smi
+```
+
+**설치되어 있다면 결과 스크린샷 업로드**
+**설치되지 않았다면 "GPU 없음" 선택**
+
+### Apple Silicon GPU (Mac)
+
+이미 "About This Mac" 스크린샷에서 확인했습니다! ✅
+
+---
+
+### Step 10: 정보 재확인
+
+수집된 모든 정보를 다시 한 번 확인합니다:
+
+**확인 사항:**
+
+- ✅ 이름/닉네임 정확한가요?
+- ✅ 목표 & 성과 정확한가요?
+- ✅ 숙련도 선택 정확한가요?
+- ✅ OS 정보 정확한가요?
+- ✅ CPU 정보 정확한가요?
+- ✅ RAM 크기 정확한가요?
+- ✅ Python 버전 정확한가요?
+- ✅ GPU 정보 정확한가요?
+
+---
+
+### Step 11: README 문서 확인
+
+**이제 README.md를 읽으시겠습니까?**
+
+README.md에는 다음 내용이 포함되어 있습니다:
+- 프로젝트 전체 구조 및 목표
+- 4주 학습 로드맵
+- Skills 개발 프로세스
+- 팀 협업 방식
+
+**선택지:**
+- ✅ **네, README를 읽겠습니다** → README 읽기 안내
+- ⏭️ **나중에 읽겠습니다** → 바로 완료 화면으로 진행
+
+---
+
+### Step 12: claude.md에 자동 저장
+
+모든 정보가 확인되면 다음을 수행합니다:
+
+1. **claude.md 파일 업데이트**
+
+   예시:
+   ```markdown
+   ## 📋 User Profile
+
+   **Setup Status:** ✅ Complete
+
+   ### Participant Information
+   - **Name:** 김철수 (또는 닉네임)
+   - **Goal & Expected Outcome:**
+     - "음성 파일을 텍스트로 자동 변환하는 스크립트 만들기"
+   - **AI Proficiency:** 클로드 코드 및 자동화 입문자
+
+   ### System Information
+   - **OS:** Windows 11 Pro
+   - **OS Version:** 23H2
+   - **Architecture:** x64
+   - **CPU:** Intel Core i9-13900K
+   - **RAM:** 32GB
+
+   ### GPU Configuration
+   - **GPU:** NVIDIA RTX 4090
+   - **GPU Type:** nvidia_cuda
+   - **Driver Version:** 550.40
+
+   ### Python Environment
+   - **Python Installed:** ✅ Yes
+   - **Python Version:** 3.11.5
+   - **Installation Path:** C:\Users\[username]\AppData\Local\Programs\Python\Python311
+   - **Virtual Environment:** Not yet
+
+   ### Project Progress
+   - **Current Week:** Week 1
+   - **Setup Date:** 2025-12-27
+   - **Last Updated:** 2025-12-27
+   ```
+
+2. **파일 저장 완료**
+
+---
+
+## 🎉 Step 13: 완료 및 다음 단계
+
+설정이 완료되었습니다! 축하합니다! 🎊
+
+이제 `claude.md`에 당신의 모든 정보가 저장되었습니다.
+이후 Claude Code와 함께 작업할 때 이 정보를 자동으로 참고합니다.
+
+### 다음 단계:
+
+**Week 1: 나만의 데이터 만들고 문제 발견하기**
+
+1. **README.md 읽기** (5분)
+   - 프로젝트 전체 개요 파악
+
+2. **Week 1 가이드 확인** (10분)
+   - 1주차 학습 내용 확인
+
+3. **자동화 아이디어 정리** (30분)
+   - 반복되는 업무 3가지 적기
+   - 자동화하고 싶은 것 1개 선정
+
+4. **예제 Skill 살펴보기** (15분)
+   - 기존 Skill 분석
+
+---
+
+## ❓ Skills vs Commands
+
+이 명령어는 **Slash Command**입니다.
+
+### 🤖 Agent Skills
+- Claude가 **자동으로** 판단해서 사용
+- 예: "이 녹음 파일 전사해줘" → Whisper Skill 자동 실행
+- Week 2부터 직접 만들 예정!
+
+### 👤 Slash Commands
+- 사용자가 **직접** `/명령어` 입력
+- 예: `/setup-workspace`, `/todo`
+
+---
+
+## 📖 참고 문서
+
+- Python 설치 가이드: `docs/python-setup-guide.md`
+- Skills 공식 문서: `docs/skills.md`
+- 스터디 상세 페이지: `docs/gpters20.md`
+- 주차별 가이드: `docs/weekly-guides/`
+
+---
+
+## ⚠️ 주의사항
+
+❌ **이 명령어는 하지 않습니다**
+- API 키 자동 설정 (수동으로 `.env.local`에 입력)
+- Python 패키지 자동 설치 (필요 시 별도 안내)
+- Git 저장소 초기화 (이미 클론한 프로젝트 가정)
+
+→ 비개발자도 쉽게 시작할 수 있도록 **최소한만** 설정합니다.
+
+---
+
+## 🔄 재실행 가능
+
+이 명령어는 언제든 다시 실행 가능합니다:
+- 기존 정보가 있으면 업데이트
+- 누락된 정보만 추가 수집
+
+---
+
+**궁금한 점이 있으면 언제든 Claude에게 물어보세요!**
+
+질문을 입력하시면 해당 Step으로 이동하겠습니다. 💡
