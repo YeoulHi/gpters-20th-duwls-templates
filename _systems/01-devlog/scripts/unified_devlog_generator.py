@@ -648,6 +648,14 @@ Examples:
             all_messages.extend(messages)
             logger.info(f"  → {len(messages)}개 메시지 수집")
 
+        # AntiGravity (Gemini) 세션
+        if config.get('tools.antigravity.enabled', False):
+            logger.info("AntiGravity 세션 수집 중...")
+            brain_dir = config.get('tools.antigravity.brain_dir', '~/.gemini/antigravity/brain')
+            messages = parser_obj.parse_antigravity_sessions(brain_dir)
+            all_messages.extend(messages)
+            logger.info(f"  → {len(messages)}개 메시지 수집")
+
         # VS Code 세션 (향후 구현)
         if config.get('tools.vs_code_extension.enabled', False):
             logger.info("VS Code 세션 수집 중... (미지원)")
