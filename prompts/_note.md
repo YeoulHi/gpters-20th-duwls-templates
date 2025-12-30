@@ -35,10 +35,24 @@ tdd path : __test__/{YYYYMMDD}_title 형식으로 테스트 코드를
 작성하고 올바르게 실행되면 scripts 경로에 코드를 작성해야한다.
 script path : _scripts/{title}
 
+# 25/12/28
+
+## S : devlog Context 스크립트 작성
+
+AIDE, vscode claude extensions, claude code cli
+해당 작업의 세션을 파악하는 스크립트
+이의 대화 이력을 읽고, 
 
 
+## pr
+
+현재 프로젝트 이용자는 claude code cli, vs code extensions, aide  등의     
+이용을 진행하기 때문에 적절한 세션을 추적, 이후 log 로 작성하기 위한       
+스크립트를 `_system/01-devlog` path 에서 작성한다.
+스크립트는 python, git bash 를 이용해야한다.
 
 --- 
 
-
+올바르게 실헹되고 있는지 qa 진행한다
+현재 대화 세션 기준으로, 해당 스크립트가 현재 대화 세션을 올바르게 
 

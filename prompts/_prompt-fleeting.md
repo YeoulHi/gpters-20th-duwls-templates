@@ -36,6 +36,9 @@ scripts 는 tdd 를 준수합니다.
 test tdd path : __test__ 
 title : test path : __test__/{YYYYMMDD}_title 형식으로 테스트 코드를 작성하고 올바르게 실행되면 scripts 경로에 코드를 작성하여 재사용성을 관리합니다.
 
+--- 
+
+
 
 
 
