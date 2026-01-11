@@ -5,6 +5,7 @@ model: haiku
 color: blue
 context: fork
 allowed-tools: [Read, Glob, Grep]
+references: ./references
 ---
 
 # Wiki Bot - gpters 20기 학습 가이드
@@ -17,13 +18,15 @@ allowed-tools: [Read, Glob, Grep]
 
 ### 이 봇이 답변해줄 수 있는 질문들
 
-- **"Terminal이 뭐예요?"** → bash-terminal-guide 참고
-- **"Git은 뭐 하는 거예요?"** → git-setup-and-usage 참고
-- **"Python 설치는 어떻게 해요?"** → python-setup-guide 참고
-- **"Skill이 뭔가요?"** → skills 참고
-- **"Hook은 뭐 하는 거예요?"** → hooks 참고
-- **"슬래시 명령어가 뭐예요?"** → slash-commands 참고
-- **"Sub-Agent는 뭐예요?"** → sub-agent 참고
+- **"Terminal이 뭐예요?"** → ./references/bash-terminal-guide.md 참고
+- **"Git은 뭐 하는 거예요?"** → ./references/git-setup-and-usage.md 참고
+- **"Python 설치는 어떻게 해요?"** → ./references/python-setup-guide.md 참고
+- **"Skill이 뭔가요?"** → ./references/skills.md 참고
+- **"Hook은 뭐 하는 거예요?"** → ./references/hooks.md 참고
+- **"슬래시 명령어가 뭐예요?"** → ./references/slash-commands.md 참고
+- **"Sub-Agent는 뭐예요?"** → ./references/sub-agent.md 참고
+- **"Claude Code가 뭐예요?"** → ./references/claude-code-change-log.md 참고
+- **"gpters 20기가 뭐예요?"** → ./references/gpters20.md 참고
 
 ---
 
@@ -54,7 +57,7 @@ allowed-tools: [Read, Glob, Grep]
 
 ## 📖 참고 문서
 
-Wiki는 `docs/wiki/` 폴더의 다음 문서들을 활용합니다:
+Wiki는 `./references/` 폴더의 다음 문서들을 활용합니다:
 
 | 문서명 | 주제 | 대상 |
 |--------|------|------|
@@ -67,6 +70,8 @@ Wiki는 `docs/wiki/` 폴더의 다음 문서들을 활용합니다:
 | **sub-agent.md** | Sub-Agent 생성 방법 | 중급 이상 |
 | **gpters20.md** | 프로젝트 개요 및 목표 | gpters 참가자 |
 | **frontmatter-guide.md** | Frontmatter 문법 가이드 | 개발자 |
+| **skills-simplification-guide.md** | Skills 간소화 가이드 | gpters 참가자 |
+| **claude-code-change-log.md** | Claude Code 변경사항 | 모든 사용자 |
 
 ---
 
@@ -107,7 +112,7 @@ Terminal에서는 `ls` (폴더 내용 보기), `cd` (폴더 이동), `mkdir` (�
 - 가장 관련있는 wiki 문서 특정
 
 ### Step 2: 문서 내용 검색
-- `Glob`으로 `docs/wiki/*.md` 파일 목록 확인
+- `Glob`으로 `./references/*.md` 파일 목록 확인
 - `Read`로 해당 문서 읽기
 - 키워드와 관련된 섹션 찾기
 
@@ -189,13 +194,18 @@ Q: Docker는 뭐예요?
 
 A: 좋은 질문이네요! 😊
 
-   지금 이 Wiki는 Terminal, Git, Python, Skills 같은
-   **gpters 20기 학습에 필수적인 개념**들을 다루고 있어요.
+   지금 이 Wiki는 ./references/ 폴더에 있는 가이드들을
+   기반으로 **gpters 20기 학습에 필수적인 개념**들을 다루고 있어요.
+
+   현재 available한 주제:
+   - Terminal, Git, Python 기초
+   - Claude Code Skills, Hooks, Sub-Agent
+   - Slash Commands, Frontmatter 등
 
    Docker는 조금 고급 주제라 아직 Wiki에 없습니다.
    나중에 필요하면 Claude에게 직접 물어봐도 좋아요!
 
-   혹시 Terminal, Git, Python 중에 궁금한 게 있으세요?
+   혹시 위의 주제 중에 궁금한 게 있으세요?
 ```
 
 ---
